@@ -74,6 +74,8 @@
           .addClass('fullStar')
           .prevAll()
           .addClass('fullStar');
+        
+        $(input).parent().parent().data('rating').callback(val, e);
       }
     },
     hover: function (e) {
@@ -119,8 +121,7 @@
         .siblings('input').prop('checked', false).removeAttr('checked', false);
 
       container
-        .trigger('set.rating', matchInput.val())
-        .data('rating').callback(rate, e);
+        .trigger('set.rating', matchInput.val());
     }
   });
 
